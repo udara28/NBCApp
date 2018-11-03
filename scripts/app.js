@@ -34,12 +34,13 @@
 
     var recorder = document.getElementById('recorder');
 
-  recorder.addEventListener('change', function(e) {
-    var file = e.target.files[0];
-    // Do something with the video file.
-    var player = document.getElementById('player');
-    player.src = URL.createObjectURL(file);
-  });
+    var handleSuccess = function(stream) {
+        var player = document.getElementById('player');
+        player.srcObject = stream;
+      };
+
+      navigator.mediaDevices.getUserMedia({ audio: true, video: true })
+          .then(handleSuccess)
 
   /*****************************************************************************
    *
