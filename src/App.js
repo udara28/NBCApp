@@ -20,18 +20,37 @@ class App extends React.Component {
 
 	componentDidMount() {
 		this.startRecording()
+
+		var commands = {
+			'play video': function () {
+				console.log('play video')
+				// document.querySelector('video').play();
+			},
+			'pause video': function () {
+				console.log('pause video')
+				// document.querySelector('video').pause();
+			}
+		};
+
+		annyang.addCommands(commands);
+		annyang.start();
+
+		console.log('here')
 	}
 
 	startRecording() {
 
 		let self = this;
-		var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
-		recognition.lang = 'en-US';
-		recognition.interimResults = false;
-		recognition.maxAlternatives = 5;
+		var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)()
+		recognition.lang = 'en-US'
+		recognition.interimResults = false
+		recognition.maxAlternatives = 5
+		recognition.continuous = true
 		recognition.start()
 
 		recognition.onresult = function (event) {
+
+			console.log(event.results[0][0].transcript)
 
 			let speechText = event.results[0][0].transcript.toString()
 
@@ -43,9 +62,9 @@ class App extends React.Component {
 				self.changeVideoURL(video2URL)
 			}
 
-			self.setState({ speechText })
+			// self.setState({ speechText })
 
-			console.log('You said: ', speechText)
+			// console.log('You said: ', speechText)
 
 		}
 	}
@@ -56,11 +75,10 @@ class App extends React.Component {
 
 	render() {
 
-		let videoTag = <video width="320" height="240" src={this.state.videoURL} autoPlay={true}></video>
+		let videoTag = <video className='video_container' width="320" height="240" src={this.state.videoURL} autoPlay={true}></video>
 
 		return (
 			<div className="camera">
-				<h1>{this.state.speechText}</h1>
 
 				<button onClick={this.startRecording}>
 					Record new text
