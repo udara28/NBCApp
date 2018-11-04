@@ -116,6 +116,7 @@ body {
 .header__title {
   font-weight: 400;
   font-size: 20px;
+  text-align: center;
   margin: 0;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -244,6 +245,7 @@ body {
 
 .card {
   padding: 16px;
+  text-align: center;
   position: relative;
   box-sizing: border-box;
   background: #fff;
