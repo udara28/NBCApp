@@ -80,8 +80,10 @@ class App extends React.Component {
 		return (
 			<div className="camera">
 
-				<button onClick={this.startRecording}>
-					Record new text
+				<button id="recordButton" onClick={this.startRecording}>
+					<span className='logo_image'>
+						<img className="logo_image" src='https://firebasestorage.googleapis.com/v0/b/autochat-42b74.appspot.com/o/Artboard1-8.png?alt=media&token=c136980e-5698-4c93-9ecd-8e3defa44a13' type='image/png' style={{ width: '350px' }} />
+					</span>
 				</button>
 
 				{videoTag}
