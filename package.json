@@ -1,22 +1,34 @@
 {
-	"name": "translator",
+	"name": "Relive",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "parcel src/index.html"
+		"dev": "parcel src/index.html",
+		"build": "parcel build  --public-url ./dist/ src/index.html",
+		"start": "npm run build && babel-node server.js"
 	},
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-eslint": "^10.0.1",
+		"babel-plugin-transform-class-properties": "^6.24.1",
+		"babel-plugin-transform-react-jsx": "^6.24.1",
+		"babel-preset-env": "^1.7.0",
 		"parcel-bundler": "^1.10.3"
 	},
 	"dependencies": {
-		"get-user-media-promise": "^1.1.4",
-		"microphone-stream": "^4.1.3",
-		"react": "^16.6.0",
-		"react-dom": "^16.6.0",
-		"simple-peer": "^9.1.2"
+		"@reach/router": "^1.2.1",
+		"babel-cli": "^6.26.0",
+		"express": "^4.16.4",
+		"preact": "^8.3.1",
+		"preact-compat": "^3.18.4",
+		"preact-context": "^1.1.2",
+		"preact-dom": "^1.0.1",
+		"preact-router": "^2.6.1",
+		"react": "^16.6.1",
+		"react-dom": "^16.6.1"
 	}
 }

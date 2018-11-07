@@ -1,7 +1,4 @@
 import React from 'react'
-import { render } from 'react-dom'
-
-var player = document.getElementById('player');
 
 class App extends React.Component {
 
@@ -17,10 +14,6 @@ class App extends React.Component {
 
 		this.startRecording = this.startRecording.bind(this)
 		this.changeVideoURL = this.changeVideoURL.bind(this)
-
-		// setInterval(function () {
-		// 	self.clearCache()
-		// }, 10000)
 
 	}
 
@@ -163,7 +156,12 @@ class App extends React.Component {
 				<h1 className="screenText">{this.state.screenText}</h1>
 				<button id="recordButton" onClick={this.startRecording}>
 					<span className='logo_image'>
-						<img className="logo_image" src='https://firebasestorage.googleapis.com/v0/b/nbcapp-be1a3.appspot.com/o/Artboard1-8.png?alt=media&token=0731b2ec-9cf2-4db8-86fa-e89d2f5deb33' type='image/png' style={{ width: '150px' }} />
+						<img
+							className="logo_image"
+							src='https://firebasestorage.googleapis.com/v0/b/nbcapp-be1a3.appspot.com/o/Artboard1-8.png?alt=media&token=0731b2ec-9cf2-4db8-86fa-e89d2f5deb33'
+							type='image/png'
+							style={{ width: '150px' }}
+						/>
 					</span>
 				</button>
 
@@ -174,4 +172,4 @@ class App extends React.Component {
 	}
 }
 
-render(<App />, document.getElementById('root'))
+export default App
